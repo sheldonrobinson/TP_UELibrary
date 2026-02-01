@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "",
+	"Category": "Games",
+	"Description": "Unreal Game as a Shared Library",
+	"Modules": [
+		{
+			"Name": "TP_UELibrary",
+			"Type": "Runtime",
+			"LoadingPhase": "EarliestPossible"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "ModelingToolsEditorMode",
+			"Enabled": true,
+			"TargetAllowList": [
+				"Editor"
+			]
+		}
+	],
+	"TargetPlatforms": ["Win64"],
+}
