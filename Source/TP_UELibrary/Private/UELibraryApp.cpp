@@ -190,11 +190,12 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
     MyRegisterClass(hInst);
 #endif	
 	// Create  and display the main program window
+	DWORD windowsStyle = hWndParent == NULL  ? WS_OVERLAPPEDWINDOW : WS_CHILDWINDOW | WS_VISIBLE;
     HWND hWnd = CreateWindowExW(
 			WS_EX_WINDOWEDGE | WS_EX_CLIENTEDGE,
             L"TP_UELibrary",
             NULL,
-            WS_CHILDWINDOW | WS_VISIBLE,
+            windowsStyle,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
             CW_USEDEFAULT,
@@ -291,6 +292,7 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
 #endif
 	return 0;
 }
+
 
 
 
