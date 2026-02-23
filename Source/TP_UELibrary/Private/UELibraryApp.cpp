@@ -231,7 +231,7 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
 	std::wstring MapToUse;
 	if (!ExtractValueFromCommandLine((wchar_t*)CmdLineCopy.c_str(), L"-OverrideMap", MapToUse))
 	{
-		MapToUse = L"/Engine/Maps/Entry.Entry";
+		MapToUse = L"/Game/Maps/TP_UELibrary.umap";
 	}
 	
 	std::wstring UEProjectPath;
@@ -293,6 +293,7 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
 #endif
 	return 0;
 }
+
 
 
 
