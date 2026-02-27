@@ -113,7 +113,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 #if !defined(WITH_EDITOR)  || (WITH_EDITOR == 0)
 ATOM wndClass;       // registered window class
 // Forward declarations of functions included in this code module:
-ATOM                MyRegisterClass(HINSTANCE hInst);
+ATOM                TP_UELibraryRegisterClass(HINSTANCE hInst);
 
 BOOL WINAPI DllMain(
     HINSTANCE hinstDLL,  // handle to DLL module
@@ -127,7 +127,7 @@ BOOL WINAPI DllMain(
         case DLL_PROCESS_ATTACH:
          // Initialize once for each new process.
          // Return FALSE to fail DLL load.
-			wndClass =  MyRegisterClass(hinstDLL);
+			wndClass =  TP_UELibraryRegisterClass(hinstDLL);
             break;
 
         case DLL_THREAD_ATTACH:
@@ -157,7 +157,7 @@ BOOL WINAPI DllMain(
 //
 //  PURPOSE: Registers the window class.
 //
-ATOM MyRegisterClass(HINSTANCE hInst)
+ATOM TP_UELibraryRegisterClass(HINSTANCE hInst)
 {
     // Register window class
 	WNDCLASSEXW wcex;
@@ -187,7 +187,7 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
 	// Perform application initialization:
 #if !defined(WITH_EDITOR) || (WITH_EDITOR == 0)
     // Initialize
-    MyRegisterClass(hInst);
+    TP_UELibraryRegisterClass(hInst);
 #endif	
 	// Create  and display the main program window
 	DWORD extendedStyle = hWndParent == NULL  ? WS_EX_APPWINDOW | WS_EX_WINDOWEDGE : WS_EX_CLIENTEDGE;
@@ -293,12 +293,3 @@ TP_UELibrary_EXPORT int AppMain(HINSTANCE hInst, HWND hWndParent, const char* Cm
 #endif
 	return 0;
 }
-
-
-
-
-
-
-
-
-
